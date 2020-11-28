@@ -20,11 +20,27 @@ for word in words:  '''当遇到一个新词时，单词没有出现在字典结
         counts[word] = counts.get(word,0) + 1  ''' 无论词是否在字典中，加入字典counts中的处理逻辑可以统一表示。
                                                    字典类型的counts.ger(word,0)方法表示：如果word在counts中，则返回
                                                    word对应的值，如果word不在counts中，则返回0。
+                                                   python 字典（Dictinary）get()函数返回指定键的值。
+                                                   get()方法语法：   dict.get（key, default=None）
+                                                   key --字典中要查找的键。
+                                                   default --如果指定键的值不存在时，返回该默认值。
+                                                   返回值，返回指定的值，如果键不在字典中返回默认值None或者设置的默认值。
                                                '''
-items = list(counts.items())
-items.sort(key=lambda x:x[1], reverse=True)
+items = list(counts.items())  # count()方法用于统计字符串里某个字符出现的次数。可选参数为在字符串搜索的开始与结束位置。
+                              # python 字典(Dictionary)items() 函数以列表返回可遍历的(键，值)元祖数组。
+  items.sort(key=lambda x:x[1], reverse=True)  
+''' sort()函数用于对原列表进行排序，如果指定参数，则使用比较函数指定的比较函数。
+    sort(d.items(),key=lambda x:x[1])中d.items()为待排序的对象；
+    key=lambda x:x[1]为对前面的对象中的第二位数据（即value）的值进行排序。key=lambda 变量：变量[维数]。维数可以按照自己的需要进行设置。
+    key=lambda 元素：元素[字段索引]
+    比如 print(sorted(C,key=lambda x:x[2]))
+    x:x[]字母可以随意修改，排序方式按照中括号[]里面的维度进行排序，[0]按照第一维排序，[2]按照第三维排序。
+'''
 for i in range(50):
-    word, count = items[i]
+    word, count = items[i]   '''python中的变量不需要声明。每个变量再使用前都必需赋值，变量赋值以后该变量才会被创建。
+                                python中，变量就是变量，它没有类型，他们所说的“类型”是变量所指的内存中对象的类型。
+                                等号（=）运算符左边是一个变量名，等号（=）运算符右边是存储在变量中的值。
+                             '''
     print ("{0:<10}{1:>5}".format(word,count)) '''  输出。{0:10}花括号代表一个字典槽位，槽位里左边代表键，右边代表值。
                                                    这个是format方法的格式控制。首先：'我的｛0｝叫｛1｝'.format(word,count),大括号里的数字
                                                    表示的是位置，就是0对应的Word，1对应的是count。
